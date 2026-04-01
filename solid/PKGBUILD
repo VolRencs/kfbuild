@@ -1,0 +1,33 @@
+pkgname=solid
+pkgver=6.24.0
+pkgrel=1
+epoch=1
+pkgdesc='Hardware integration and detection'
+arch=(x86_64)
+url='https://community.kde.org/Frameworks'
+license=(LGPL-2.0-only LGPL-3.0-only)
+depends=(libgcc
+         libstdc++
+         glibc
+         qt6-base
+         systemd-libs
+         udisks2
+         util-linux-libs)
+makedepends=(extra-cmake-modules
+             qt6-declarative
+             qt6-tools
+             ninja)
+optdepends=('qt6-declarative: QML bindings')
+groups=(kf6)
+source=(https://download.kde.org/stable/frameworks/${pkgver%.*}/$pkgname-$pkgver.tar.xz)
+sha256sums=('2f506908ff32ffcdd9918879070b666c9384b079493c25f80735553e332a53fd')
+
+build() {
+  cmake -B build -S $pkgname-$pkgver -G Ninja \
+    -DBUILD_TESTING=OFF
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}

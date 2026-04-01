@@ -1,0 +1,34 @@
+pkgname=prison
+pkgver=6.24.0
+pkgrel=1
+epoch=1
+pkgdesc='A barcode API to produce QRCode barcodes and DataMatrix barcodes'
+arch=(x86_64)
+url='https://community.kde.org/Frameworks'
+license=(MIT)
+depends=(libgcc
+         libstdc++
+         glibc
+         qrencode
+         qt6-base
+         qt6-multimedia
+         zxing-cpp)
+makedepends=(extra-cmake-modules
+             qt6-declarative
+             qt6-tools
+             ninja)
+optdepends=('qt6-declarative: QML bindings')
+groups=(kf6)
+source=(https://download.kde.org/stable/frameworks/${pkgver%.*}/$pkgname-$pkgver.tar.xz)
+sha256sums=('39ea2b51fd0e405b964c1f22d64ad0111c79895894590d68b29712d7dde4cd34')
+
+build() {
+  cmake -B build -S $pkgname-$pkgver -G Ninja \
+    -DBUILD_TESTING=OFF \
+    -DWITH_DMTX=OFF
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
