@@ -1,4 +1,4 @@
-name: Build KDE Apps
+name: Build KDE Frameworks
 
 on:
   push:
