@@ -15,7 +15,6 @@ on:
             "kfilemetadata",
             "knewstuff",
             "prison",
-            "purpose",
             "solid"
           ]
       force_release:
