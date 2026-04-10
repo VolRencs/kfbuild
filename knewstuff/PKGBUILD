@@ -1,5 +1,5 @@
 pkgname=knewstuff
-pkgver=6.24.0
+pkgver=6.25.0
 pkgrel=1
 epoch=1
 pkgdesc='Support for downloading application assets from the network'
@@ -25,7 +25,7 @@ makedepends=(extra-cmake-modules
              ninja)
 groups=(kf6)
 source=(https://download.kde.org/stable/frameworks/${pkgver%.*}/$pkgname-$pkgver.tar.xz)
-sha256sums=('9759f4e158d1f466030131443201441b2f7cff12638a24f6184bdae4b08e2a05')
+sha256sums=('8c31ef25a7d7389473d12245ae564ad888467b8ef910ac212e16e9334540cd08')
 
 build() {
   cmake -B build -S $pkgname-$pkgver -G Ninja \

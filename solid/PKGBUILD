@@ -1,5 +1,5 @@
 pkgname=solid
-pkgver=6.24.0
+pkgver=6.25.0
 pkgrel=1
 epoch=1
 pkgdesc='Hardware integration and detection'
@@ -20,7 +20,7 @@ makedepends=(extra-cmake-modules
 optdepends=('qt6-declarative: QML bindings')
 groups=(kf6)
 source=(https://download.kde.org/stable/frameworks/${pkgver%.*}/$pkgname-$pkgver.tar.xz)
-sha256sums=('2f506908ff32ffcdd9918879070b666c9384b079493c25f80735553e332a53fd')
+sha256sums=('8177fa8f139b855856e171426c5f2adb96d727e62e6ec536675da11aa157b33e')
 
 build() {
   cmake -B build -S $pkgname-$pkgver -G Ninja \
