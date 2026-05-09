@@ -1,5 +1,5 @@
 pkgname=ktexteditor
-pkgver=6.25.0
+pkgver=6.26.0
 pkgrel=1
 epoch=1
 pkgdesc='Advanced embeddable text editor'
@@ -35,7 +35,7 @@ makedepends=(extra-cmake-modules
 optdepends=('git: git integration')
 groups=(kf6)
 source=(https://download.kde.org/stable/frameworks/${pkgver%.*}/$pkgname-$pkgver.tar.xz)
-sha256sums=('77e815edcdf572397f5eb750d7232b366f6cc6274bb34246ab88f2f2179733b4')
+sha256sums=('ec7bc094f93d514b5f675ae95c274dd24acc47769d971606d8708cc88f811341')
 
 build() {
   cmake -B build -S $pkgname-$pkgver -G Ninja \
